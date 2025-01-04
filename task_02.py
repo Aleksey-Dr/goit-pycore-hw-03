@@ -7,8 +7,10 @@ def get_numbers_ticket(min, max, quantity):
         return []
 
     lottery_numbers = []
-    for i in range(quantity):
-        lottery_numbers.append(random.randint(min, max))
+    while len(lottery_numbers) < quantity:
+        new_number = random.randint(min, max)
+        if new_number not in lottery_numbers:
+            lottery_numbers.append(new_number)
 
     lottery_numbers.sort()
     return lottery_numbers
